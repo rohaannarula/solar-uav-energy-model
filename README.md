@@ -1,42 +1,7 @@
 # Solar UAV Energy Model
 
-A MATLAB-based simulation of the energy balance of a solar-powered UAV undertaking a transatlantic flight.
+This project contains a MATLAB model of a solar-powered UAV completing a transatlantic flight from London Heathrow to JFK. I built it to investigate how the aircraft’s aerodynamic power requirements, solar energy collection and battery storage interact throughout a multi-day mission. The model compares different cruise altitudes and flight conditions, including maximum lift-to-drag ratio and minimum power, as well as a fixed solar panel and an idealised two-axis gimballed panel. The main aim is to see whether collecting more solar energy necessarily improves endurance, or whether battery capacity becomes the limiting factor.
 
-The model includes:
+The model is split into several functions. `flightparams.m` contains the aircraft, battery, solar and mission constants in one structure, so the same parameters can be used consistently throughout the simulation. `makeroute.m` generates the great-circle route between London and JFK, returning the aircraft positions and distance travelled along the route. `plot_greatcircle.m` uses this route to calculate the flight time and heading at each point, and produces plots showing the aircraft’s position and flight conditions. `greatcircle.m` contains the spherical-geometry calculations used to determine the route and headings. `plot_panel.m` calculates the solar conditions throughout the flight and plots the panel’s orientation and energy collection over time. `panelorient.m` determines the Sun’s position relative to the aircraft and calculates the orientation required for the solar panel to face it. The remaining scripts combine the aerodynamic and solar models to calculate the aircraft’s power balance, battery state of charge and overall mission performance.
 
-* Great-circle navigation
-* Steady-level flight aerodynamics
-* Solar-position and photovoltaic modelling
-* Battery state-of-charge dynamics
-
-It investigates how cruise altitude, flight condition, solar-panel orientation and battery capacity affect long-endurance flight.
-
-## Key features
-
-* Comparison of maximum-\(L/D\) and minimum-power flight
-* Fixed versus idealised two-axis gimballed solar panels
-* Solar harvesting with atmospheric attenuation
-* Time-dependent battery energy balance
-* Altitude and mission-performance analysis
-
-## Main finding
-
-At 3000 m, maximum-\(L/D\) flight required **22.02 MJ over 123.4 hours**, while minimum-power flight required **25.75 MJ over 162.5 hours** but maintained a greater battery reserve.
-
-Idealised solar tracking increased harvested energy by approximately **62%**, although much of this surplus was discarded once the battery reached capacity.
-
-The results demonstrate that solar-UAV endurance is governed by the coupled relationship between **aerodynamics, solar collection and energy storage**.
-
-## Research
-
-This project accompanies an academic paper investigating the energy balance of a solar-powered UAV crossing the Atlantic from London Heathrow to JFK.
-
-**Author:** Rohaan Narula
-**Mentor:** Dr. Ella Atkins, Virginia Tech
-
-## Requirements
-
-* MATLAB
-* MATLAB plotting functionality
-
-Run the main MATLAB script to reproduce the simulation and analysis plots.
+The model is based on the AtlantikSolar UAV and uses steady-level flight assumptions, atmospheric density variation, solar-position geometry, atmospheric attenuation and finite battery storage. The results suggest that maximum-\(L/D\) flight reduces the total energy required, while minimum-power flight can preserve a larger battery reserve. Idealised solar tracking also increases the energy collected, although some of this energy is wasted when the battery reaches full capacity. This project accompanies my paper on modelling the energy balance of a solar-powered UAV crossing the Atlantic.
