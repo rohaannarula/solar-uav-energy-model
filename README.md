@@ -1,4 +1,4 @@
-- Solar UAV Energy Model - 
+Solar UAV Energy Model
 
 This project contains a MATLAB model of a solar-powered UAV completing a transatlantic flight from London Heathrow to JFK. I built it to investigate how the aircraft’s aerodynamic power requirements, solar energy collection and battery storage interact throughout a multi-day mission. The model compares different cruise altitudes and flight conditions, including maximum lift-to-drag ratio and minimum power, as well as a fixed solar panel and an idealised two-axis gimballed panel. The main aim is to see whether collecting more solar energy necessarily improves endurance, or whether battery capacity becomes the limiting factor.
 
